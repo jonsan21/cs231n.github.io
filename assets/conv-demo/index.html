@@ -15,11 +15,11 @@ body {
 
 <script type="text/javascript">
 
-var W1 = 7;
-var H1 = 7;
+var W1 = 9;
+var H1 = 9;
 var D1 = 3;
 
-var K = 1;
+var K = 2;
 var F = 3;
 var S = 2; // stride
 
@@ -29,14 +29,14 @@ var X = new U.Vol(W1, H1, D1); // input volume
 for(var q=0;q<X.w.length;q++) {
   X.w[q] = Math.floor(Math.random()*3);
   // 0 pad with P = 1
-  for(var d=0;d<X.depth;d++) {
-    for(var x=0;x<X.sx;x++) {
-      for(var y=0;y<X.sy;y++) {
-        if(x === 0 || x === (X.sx - 1) || y === 0 || y === (X.sy - 1)) {
-          X.set(x,y,d,0);
-        }
-      }  
-    }
+  //for(var d=0;d<X.depth;d++) {
+  //  for(var x=0;x<X.sx;x++) {
+  //    for(var y=0;y<X.sy;y++) {
+  //      if(x === 0 || x === (X.sx - 1) || y === 0 || y === (X.sy - 1)) {
+  //        X.set(x,y,d,0);
+  //      }
+  //    }  
+  //  }
   }
 }
 
