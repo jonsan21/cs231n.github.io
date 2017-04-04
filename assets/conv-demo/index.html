@@ -182,13 +182,13 @@ function draw() {
 
   for(var i=0;i<Ws.length;i++) {
     // render weights
-    renderVol(svg, Ws[i], W1*38 + i*170, yoff, '#FDD', 'Filter W'+i, 'w'+i);
+    renderVol(svg, Ws[i], 300 + i*170, yoff, '#FDD', 'Filter W'+i, 'w'+i);
     // render biases
-    renderVol(svg, bs[i], W1*38 + i*170, 350 + yoff, '#FDD', 'Bias b'+i, 'b'+i);
+    renderVol(svg, bs[i], 300 + i*170, 350 + yoff, '#FDD', 'Bias b'+i, 'b'+i);
   }
 
   // render output
-  renderVol(svg, O, W1*85, yoff, '#DFD', 'Output Volume', 'o');
+  renderVol(svg, O, 630, yoff, '#DFD', 'Output Volume', 'o');
 
   // render controls
   
