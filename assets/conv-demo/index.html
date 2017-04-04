@@ -102,7 +102,7 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
 
   var txt = title + ' (' + V.sx + 'x' + V.sy + 'x' + V.depth + ')';
   // 1 padding exception
-  if(vid === 'x') { txt = title + ' (' + (V.sx-2) + 'x' + (V.sy-2) + 'x' + V.depth + ')'; }
+  //if(vid === 'x') { txt = title + ' (' + (V.sx-2) + 'x' + (V.sy-2) + 'x' + V.depth + ')'; }
 
   svg.append('text')
     .attr('x', xoff)
@@ -128,6 +128,12 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
         var ycoord = yoff + y * (cs + pad) + d * (V.sy * (cs + pad) + dpad) + gyoff;
 
         var thecol = col;
+		if(vid === 'x' && d === 0) {thecol = '#ff0000';}
+		if(vid === 'x' && d === 1) {thecol = '#0000ff';}
+		if(vid === 'x' && d === 2) {thecol = '#00ff00';}
+
+		
+
         if(vid === 'x' && (x === 0 || y === 0 || x === V.sx - 1 || y === V.sy - 1)) {thecol = '#DDD';}
 
         svg.append('rect')
