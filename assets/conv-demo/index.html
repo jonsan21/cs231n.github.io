@@ -102,7 +102,7 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
 
   var txt = title + ' (' + V.sx + 'x' + V.sy + 'x' + V.depth + ')';
   // 1 padding exception
-  //if(vid === 'x') { txt = title + ' (' + (V.sx-2) + 'x' + (V.sy-2) + 'x' + V.depth + ')'; }
+  if(vid === 'x') { txt = title + ' (' + (V.sx-2) + 'x' + (V.sy-2) + 'x' + V.depth + ')'; }
 
   svg.append('text')
     .attr('x', xoff)
