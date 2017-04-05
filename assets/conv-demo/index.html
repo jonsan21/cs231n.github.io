@@ -118,7 +118,7 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
     svg.append('text')
       //.attr('x', xoff)
       //.attr('y', yoff + d * (V.sy * (cs + pad) + dpad) + gyoff - 5)
-      .attr('x', xoff + d * (V.sy * (cs + pad) + dpad) + gyoff)
+      .attr('x', xoff + d * (V.sy * (cs + pad) + dpad))
       .attr('y', yoff + gyoff - 5)
 	  .attr('font-size', 16)
       .attr('fill', 'black')
@@ -130,8 +130,8 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
 
         //var xcoord = xoff + x * (cs + pad);
         //var ycoord = yoff + y * (cs + pad) + d * (V.sy * (cs + pad) + dpad) + gyoff;
-		var xcoord = xoff + x * (cs + pad) + d * (V.sy * (cs + pad) + dpad) + gyoff;
-        var ycoord = yoff + y * (cs + pad);
+		var xcoord = xoff + x * (cs + pad) + d * (V.sy * (cs + pad) + dpad);
+        var ycoord = yoff + y * (cs + pad) + gyoff;
 
         var thecol = col;
 		
