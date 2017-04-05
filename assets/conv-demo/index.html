@@ -105,10 +105,10 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
   //if(vid === 'x') { txt = title + ' (' + (V.sx-2) + 'x' + (V.sy-2) + 'x' + V.depth + ')'; }
 
   svg.append('text')
-    .attr('x', xoff)
-    .attr('y', yoff - 5)
-	//.attr('x', xoff - 5)
-    //.attr('y', yoff)
+    //.attr('x', xoff)
+    //.attr('y', yoff - 5)
+	.attr('x', xoff - 5)
+    .attr('y', yoff)
     .attr('font-size', 16)
     .attr('fill', 'black')
     .text(txt);
@@ -118,7 +118,7 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
     svg.append('text')
       //.attr('x', xoff)
       //.attr('y', yoff + d * (V.sy * (cs + pad) + dpad) + gyoff - 5)
-      .attr('x', xoff + d * (V.sy * (cs + pad) + dpad) + gyoff - 4)
+      .attr('x', xoff + d * (V.sy * (cs + pad) + dpad) + gyoff - 5)
       .attr('y', yoff)
 	  .attr('font-size', 16)
       .attr('fill', 'black')
