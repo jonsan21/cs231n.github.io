@@ -105,10 +105,8 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
   //if(vid === 'x') { txt = title + ' (' + (V.sx-2) + 'x' + (V.sy-2) + 'x' + V.depth + ')'; }
 
   svg.append('text')
-    //.attr('x', xoff)
-    //.attr('y', yoff - 5)
-	.attr('x', xoff - 5)
-    .attr('y', yoff)
+    .attr('x', xoff)
+    .attr('y', yoff - 5)
     .attr('font-size', 16)
     .attr('fill', 'black')
     .text(txt);
@@ -116,11 +114,9 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
   for(var d = 0; d < V.depth; d++) {
 
     svg.append('text')
-      //.attr('x', xoff)
-      //.attr('y', yoff + d * (V.sy * (cs + pad) + dpad) + gyoff - 5)
-      .attr('x', xoff + d * (V.sy * (cs + pad) + dpad) + gyoff - 5)
-      .attr('y', yoff)
-	  .attr('font-size', 16)
+      .attr('x', xoff)
+      .attr('y', yoff + d * (V.sy * (cs + pad) + dpad) + gyoff - 5)
+      .attr('font-size', 16)
       .attr('fill', 'black')
       .attr('style', 'font-family: courier;')
       .text(vid + '[:,:,'+d+']');
@@ -128,10 +124,8 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
     for(var x = 0; x < V.sx; x++) {
       for(var y = 0; y < V.sy; y++) {
 
-        //var xcoord = xoff + x * (cs + pad);
-        //var ycoord = yoff + y * (cs + pad) + d * (V.sy * (cs + pad) + dpad) + gyoff;
-		var xcoord = xoff + x * (cs + pad) + d * (V.sy * (cs + pad) + dpad) + gyoff;
-        var ycoord = yoff + y * (cs + pad);
+        var xcoord = xoff + x * (cs + pad);
+        var ycoord = yoff + y * (cs + pad) + d * (V.sy * (cs + pad) + dpad) + gyoff;
 
         var thecol = col;
 		
@@ -166,10 +160,8 @@ function renderVol(svg, V, xoff, yoff, col, title, vid) {
           .attr('class', vid);
 
         svg.append('text')
-          //.attr('x', xcoord + 5)
-          //.attr('y', ycoord + 15)
-		  .attr('x', xcoord + 15)
-          .attr('y', ycoord + 5)
+          .attr('x', xcoord + 5)
+          .attr('y', ycoord + 15)
           .attr('font-size', 16)
           .attr('fill', 'black')
           .text(V.get(x,y,d).toFixed(0));
@@ -190,17 +182,13 @@ function draw() {
 
   for(var i=0;i<Ws.length;i++) {
     // render weights
-    //renderVol(svg, Ws[i], 315 + i*170, yoff, '#FDD', 'Filter W'+i, 'w'+i);
+    renderVol(svg, Ws[i], 315 + i*170, yoff, '#FDD', 'Filter W'+i, 'w'+i);
     // render biases
-    //renderVol(svg, bs[i], 315 + i*170, 350 + yoff, '#FDD', 'Bias b'+i, 'b'+i);
-	renderVol(svg, Ws[i], 10, 315 + i*170, '#FDD', 'Filter W'+i, 'w'+i);
-    // render biases
-    renderVol(svg, bs[i], 350 + 10, 315 + i*170, '#FDD', 'Bias b'+i, 'b'+i);
+    renderVol(svg, bs[i], 315 + i*170, 350 + yoff, '#FDD', 'Bias b'+i, 'b'+i);
   }
 
   // render output
-  //renderVol(svg, O, 630, yoff, '#DFD', 'Output Volume', 'o');
-  renderVol(svg, O, 10, 630, '#DFD', 'Output Volume', 'o');
+  renderVol(svg, O, 630, yoff, '#DFD', 'Output Volume', 'o');
 
   // render controls
   
