@@ -29,15 +29,15 @@ var X = new U.Vol(W1, H1, D1); // input volume
 for(var q=0;q<X.w.length;q++) {
   X.w[q] = Math.floor(Math.random()*3);
   // 0 pad with P = 1
-  //for(var d=0;d<X.depth;d++) {
-    //for(var x=0;x<X.sx;x++) {
-      //for(var y=0;y<X.sy;y++) {
-        //if(x === 0 || x === (X.sx - 1) || y === 0 || y === (X.sy - 1)) {
-          //X.set(x,y,d,0);
-        //}
-      //  
-    //}
-  //}
+  for(var d=0;d<X.depth;d++) {
+    for(var x=0;x<X.sx;x++) {
+      for(var y=0;y<X.sy;y++) {
+        if(x === 0 || x === (X.sx - 1) || y === 0 || y === (X.sy - 1)) {
+          X.set(x,y,d,0);
+        }
+      }  
+    }
+  }
 }
 
 var Ws = [];
